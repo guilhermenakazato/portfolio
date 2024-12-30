@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap");
+
+:root {
+  --primary-color: #fbcdb6;
+  --strong-primary: #FE7F69;
+  --circle-color: #FFB629;
+}
+
+@font-face {
+  font-family: "Consolas";
+  src: url(./font/Consolas.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  padding: 3vh 6vw;
+  background-image: url(./public/fundo.png);
+  height: 94vh;
+  width: calc(100% - 12vw);
+  overflow: clip;
+}
+
+body {
+  overflow-x: clip;
+}
+
+#loading {
+  display: flex;
+  flex-direction: column;
+}
+
+#loading div {
+  height: 50vh;
+  width: 100%;
+  transition: 1.25s;
+  background-color: var(--primary-color);
+}
+
+#loading span {
+  font-family: "JetBrains Mono", serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21.12px;
+  padding-bottom: 1vh;
+  padding-right: 10%;
+  transition: 1.25s;
+}
+
+#loading-two {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#menu img {
+  width: 26px;
+  height: 26px;
+}
+
+#menu-tab img {
+  width: 40px;
+  height: 40px;
+}
+
+#menu-tab {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+}
+
+#menu-tab span {
+  font-family: "JetBrains Mono";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26.4px;
+}
+
+#presentation {
+  margin-top: 7vh;
+}
+
+#presentation div {
+  background-color: black;
+  padding: 10px 30px;
+  color: white;
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 13px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+#circle {
+  height: 18px;
+  width: 18px;
+  background-color: var(--circle-color);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#presentation h3 {
+  font-family: "Consolas";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.73px;
+  text-align: left;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+#presentation h1 {
+  font-family: "Clash Grotesk";
+  font-size: 90px;
+  font-weight: 700;
+  line-height: 110.7px;
+  letter-spacing: 0.02em;
+  text-align: left;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  margin-bottom: 5vh;
+}
+
+#presentation h4 {
+  font-family: "Roboto Flex";
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 23.44px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+#language {
+  display: flex;
+  position: fixed;
+  width: 140px;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  background-color: black;
+  border-radius: 0 100px 100px 0;
+  padding: 25px;
+  bottom: 10%;
+  left: -70px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+#language:hover {
+  left: 0;
+}
+
+#language span {
+  font-family: "JetBrains Mono";
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 21.12px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: white;
+}
+
+#projects {
+  transform: rotate(-2deg);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#projects h2 {
+  font-family: "JetBrains Mono";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26.4px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: var(--strong-primary);
+}
+
+#projects h3 {
+  font-family: "JetBrains Mono";
+  font-size: 14px;
+  font-weight: 200;
+  line-height: 18.48px;
+  text-align: right;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: white;
+}
+
+#projects h4 {
+  font-family: "JetBrains Mono";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26.4px;
+  text-align: right;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: white;
+}
+
+.card {
+  border-radius: 16px;
+  width: 300px;
+  height: 450px;
+  padding: 16px;
+  background-position: center;
+  background-size: 250%;
+  border: 1px solid white;
+}
+
+#cards {
+  display: flex;
+  flex-direction: row;
+}
+
+#galeria {
+  background-image: url(./public/galeria.png);
+  background-size: 300%;
+}
+
+#design-system {
+  background-image: url(./public/pixelUI.png);
+  background-size: 200%;
+  transform: translate(-10px, 20px);
+}
+
+main {
+  height: 300vh;
+  background-color: var(--primary-color);
+}
+
+footer {
+  height: 100vh;
+  background: black;
+}
