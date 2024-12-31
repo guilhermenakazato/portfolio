@@ -3,6 +3,7 @@
 
 :root {
   --primary-color: #fbcdb6;
+  --secondary-color: #FF7835;
   --strong-primary: #FE7F69;
   --circle-color: #FFB629;
 }
@@ -25,10 +26,7 @@ header {
   height: 94vh;
   width: calc(100% - 12vw);
   overflow: clip;
-}
-
-body {
-  overflow-x: clip;
+  position: relative;
 }
 
 #loading {
@@ -167,8 +165,9 @@ body {
   padding: 25px;
   bottom: 10%;
   left: -70px;
-  transition: 0.25s;
+  transition: 0.40s;
   cursor: pointer;
+  z-index: 2;
 }
 
 #language:hover {
@@ -184,6 +183,15 @@ body {
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: white;
+}
+
+#language svg {
+  color: var(--primary-color);
+  transition: 0.40s;
+}
+
+#language:hover > svg {
+  color: var(--secondary-color);
 }
 
 #projects {
@@ -260,4 +268,44 @@ main {
 footer {
   height: 100vh;
   background: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10vh;
+}
+
+footer h1 {
+  font-family: "Clash Grotesk";
+  font-size: 170px;
+  font-weight: 600;
+  line-height: 209.1px;
+  letter-spacing: 0.02em;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: var(--primary-color);
+}
+
+#email a {
+  font-family: "Clash Grotesk";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24.6px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: var(--primary-color);
+}
+
+#email {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 16px;
+}
+
+footer a {
+  text-decoration: none;
+  color: transparent;
 }
