@@ -73,15 +73,19 @@
         </div>
       </section>
       
-      <section>
+      <section id="projects-container">
         <h1 id="selected-projects">PROJETOS SELECIONADOS</h1>
         <div class="grid">
-          <figure>
+          <figure class="done">
             <img src="./public/pixel.jpg" alt="pixel">
             <figcaption>
               <h1>PREVISÃO DO<br/>TEMPO</h1>
               <h2>Android App</h2>
             </figcaption>
+            <div id="open-overlay" class="done">
+              <div class="blur"></div>
+              <span>Ver</span>
+            </div>
           </figure>
           <figure class="in-progress">
             <img src="./public/pixelUI.jpg" alt="pixel DS">
@@ -89,6 +93,9 @@
               <h1>PixelUI</h1>
               <h2>Design System<br/>Em Produção</h2>
             </figcaption>
+            <div id="open-overlay">
+              <span>Em breve</span>
+            </div>
           </figure>
           <figure class="in-progress">
             <img src="./public/galeria.png" alt="galeria">
@@ -96,6 +103,9 @@
               <h1>Save M.</h1>
               <h2>Galeria</h2>
             </figcaption>
+            <div id="open-overlay">
+              <span>Em breve</span>
+            </div>
           </figure>
         </div>
       </section>
@@ -103,60 +113,71 @@
       <hr/>
       <section id="hardskills">
         <h1>Hardskills</h1>
-        <div>
-          <h2>Back-end</h2>
-          <div>
-            <img src="" alt="">
-            <h3>Java</h3>
+        <div class="relative-container">
+          <div class="skill-separator" id="backend">
+            <h2>Back-end</h2>
+            <div class="skill-container">
+              <div class="line">
+                <div>
+                  <img src="./public/java.png" alt="Java logo">
+                  <h3>Java</h3>
+                </div>
+                <div>
+                  <img src="./public/c.png" alt="C logo">
+                  <h3>C</h3>
+                </div>
+                <div>
+                  <img src="./public/cpp.png" alt="C++ logo">
+                  <h3>C++</h3>
+                </div>
+                <div>
+                  <img src="./public/dart.png" alt="Dart logo">
+                  <h3>Dart</h3>
+                </div>
+              </div>
+              <div class="line"><div>
+                <img src="./public/kotlin.png" alt="Kotlin logo">
+                <h3>Kotlin</h3>
+              </div>
+              <div>
+                <img src="./public/javascript.png" alt="Javascript logo">
+                <h3>Javascript</h3>
+              </div>
+            </div>  
+            </div>
           </div>
-          <div>
-            <img src="" alt="">
-            <h3>C</h3>
-          </div>
-          <div>
-            <img src="" alt="">
-            <h3>C++</h3>
-          </div>
-          <div>
-            <img src="" alt="">
-            <h3>Dart</h3>
-          </div>
-          <div>
-            <img src="" alt="">
-            <h3>Kotlin</h3>
-          </div>
-          <div>
-            <img src="" alt="">
-            <h3>Javascript</h3>
-          </div>
-        </div>
-        <div>
-          <h2>Front-end</h2>
-          <div>
-            <img src="" alt="">
-            <h3>React</h3>
-          </div>
-          <div>
-            <img src="" alt="">
-            <h3>Flutter</h3>
+          <div class="skill-separator" id="frontend">
+            <h2>Front-end</h2>
+            <div class="skill-container">
+              <div class="line">
+                <div>
+                  <img src="./public/react.png" alt="React logo">
+                  <h3>React</h3>
+                </div>
+                <div>
+                  <img src="./public/flutter.png" alt="React logo">
+                  <h3>Flutter</h3>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section>
+      <section id="softskills">
         <h1>Softskills</h1>
-        <div id="softskills">
-          <div>
+        <div id="softskills-list">
+          <div class="softskills-item">
             <h2>01</h2>
             <h2>Comunicação</h2>
             <p>A adaptabilidade é uma soft skill importante que permite que os programadores se ajustem facilmente a novas tecnologias, metodologias e requisitos de projeto.</p>
           </div>
-          <div>
+          <div class="softskills-item">
             <h2>02</h2>
             <h2>Trabalho em equipe</h2>
             <p>A adaptabilidade é uma soft skill importante que permite que os programadores se ajustem facilmente a novas tecnologias, metodologias e requisitos de projeto.</p>
           </div>
-          <div>
+          <div class="softskills-item">
             <h2>03</h2>
             <h2>Adaptabilidade</h2>
             <p>A adaptabilidade é uma soft skill importante que permite que os programadores se ajustem facilmente a novas tecnologias, metodologias e requisitos de projeto.</p>
