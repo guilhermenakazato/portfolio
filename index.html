@@ -10,13 +10,13 @@
       rel="stylesheet"
     />
   </head>
-  <body>
-    <!-- <div id="loading">
+  <body class="hide-overflow">
+    <div id="loading">
       <div id="loading-one"></div>
       <div id="loading-two">
         <span id="loading-text">Carregando...</span>
       </div>
-    </div> -->
+    </div>
     <div id="language">
       <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="80" height="80" rx="40" fill="currentColor"/>
@@ -76,18 +76,18 @@
       <section id="projects-container">
         <h1 id="selected-projects">PROJETOS SELECIONADOS</h1>
         <div class="grid">
-          <figure class="done">
+          <figure class="done hide-overflow">
             <img src="./public/pixel.jpg" alt="pixel">
             <figcaption>
               <h1>PREVISÃO DO<br/>TEMPO</h1>
               <h2>Android App</h2>
             </figcaption>
-            <div id="open-overlay" class="done">
+            <div id="open-overlay">
               <div class="blur"></div>
               <span>Ver</span>
             </div>
           </figure>
-          <figure class="in-progress">
+          <figure class="in-progress hide-overflow">
             <img src="./public/pixelUI.jpg" alt="pixel DS">
             <figcaption>
               <h1>PixelUI</h1>
@@ -97,7 +97,7 @@
               <span>Em breve</span>
             </div>
           </figure>
-          <figure class="in-progress">
+          <figure class="in-progress hide-overflow">
             <img src="./public/galeria.png" alt="galeria">
             <figcaption>
               <h1>Save M.</h1>
@@ -112,7 +112,7 @@
 
       <hr/>
       <section id="hardskills">
-        <h1>Hardskills</h1>
+        <h1>Hard<span>skills</span></h1>
         <div class="relative-container">
           <div class="skill-separator" id="backend">
             <h2>Back-end</h2>
@@ -147,7 +147,8 @@
             </div>
           </div>
           <div class="skill-separator" id="frontend">
-            <h2>Front-end</h2>
+            <h2>+ Front-end</h2>
+            <img src="./public/visibility_on_icon.png" alt="Show div" id="visibility-icon">
             <div class="skill-container">
               <div class="line">
                 <div>

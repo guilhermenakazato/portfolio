@@ -19,6 +19,10 @@
   padding: 0;
 }
 
+.hide-overflow {
+  overflow: hidden;
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -38,6 +42,11 @@ hr {
 #loading {
   display: flex;
   flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 4;
+  width: 100%;
 }
 
 #loading div {
@@ -62,9 +71,7 @@ hr {
   flex-direction: column;
   justify-content: end;
   align-items: end;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  margin-left: auto;
 }
 
 #menu {
@@ -173,7 +180,7 @@ hr {
   left: -70px;
   transition: 0.40s;
   cursor: pointer;
-  z-index: 2;
+  z-index: 3;
 }
 
 #language:hover {
@@ -318,6 +325,10 @@ main {
   width: 94%;
 }
 
+figure.done {
+  cursor: pointer;
+}
+
 .grid {
   display: grid;
   width: 100%;
@@ -333,7 +344,6 @@ main {
   height: 100%;
   position: relative;
   border: 1px solid black;
-  overflow: hidden;
 }
  
 figure img {
@@ -378,8 +388,7 @@ figure span {
   color: var(--secondary-text-color);
 }
 
-div.done#open-overlay {
-  cursor: pointer;
+.done div#open-overlay {
   background-color: transparent;
 }
 
@@ -438,6 +447,11 @@ figcaption h2 {
   width: 94%;
 }
 
+#hardskills span {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
 .relative-container {
   position: relative;
 }
@@ -473,6 +487,12 @@ figcaption h2 {
   line-height: 26.4px;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
+} 
+
+#visibility-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }
 
 .skill-separator {
@@ -512,6 +532,8 @@ figcaption h2 {
   scale: 0.8;
   z-index: 1;
   transform: translate(0, -30%);
+  opacity: 30%;
+  cursor: pointer;
 }
 
 #softskills {
