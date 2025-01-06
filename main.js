@@ -5,12 +5,6 @@ var loadingOne = document.getElementById("loading-one")
 var loadingTwo = document.getElementById("loading-two")
 var loadingText = document.getElementById("loading-text")
 
-if (typeof(Storage) !== "undefined") {
-  // Code for localStorage/sessionStorage.
-} else {
-  // Sorry! No Web Storage support..
-}
-
 function adjustDOM(timeout) {
   setTimeout(() => {
     loadingDiv.remove()
@@ -20,10 +14,11 @@ function adjustDOM(timeout) {
 
 function loadingAnimation() {
   let adjustDOMTimeout = 0;
-  
-  if(!localStorage.getItem("loaded") == "true" || localStorage.getItem("loaded") == null) {
+
+  if(typeof(Storage) !== "undefined" && (!localStorage.getItem("loaded") == "true" || localStorage.getItem("loaded") == null)) {
+    loadingDiv.classList.remove("hide-div")
     adjustDOMTimeout = 4250
-    console.log("Hi!")
+
     setTimeout(() => {
       loadingOne.style.width = 0
       loadingTwo.style.width = 0

@@ -6,7 +6,9 @@
   --secondary-color: #FF7835;
   --secondary-text-color: #FF6E25;
   --strong-primary: #FE7F69;
-  --circle-color: #FFB629;
+  --circle-color: #FFB629; 
+
+  --on-buttonclick-color: #FFC086;
 }
 
 @font-face {
@@ -23,6 +25,15 @@
   overflow: hidden;
 }
 
+.hide-div {
+  display: none;
+  visibility: hidden;
+}
+
+body {
+  overflow: hidden;
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -32,6 +43,93 @@ header {
   width: calc(100% - 12vw);
   overflow: clip;
   position: relative;
+}
+
+#change-language {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  position: fixed;
+  z-index: 3;
+  background-color: var(--primary-color);
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#change-language h3 {
+  font-family: "JetBrains Mono";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21.12px;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+#change-language img#language-icon {
+  width: 80px;
+  height: 80px;
+}
+
+#change-language div {
+  width: 100%;
+}
+
+#change-language button {
+  padding: 10px 30px;
+  border-radius: 13px;
+  border: none;
+  outline: none;
+  color: white;
+  font-family: Roboto Flex;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 23.44px;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  transition: 0.25s;
+}
+
+#change-language button:not(#apply) {
+  width: 12%;
+}
+
+#change-language button#apply {
+  width: 24%;
+}
+
+button.unselected-button:hover {
+  background-color: var(--secondary-color);
+}
+
+button.unselected-button:active {
+  background-color: var(--on-buttonclick-color);
+}
+
+.unselected-button {
+  background-color: black;
+}
+
+.selected-button {
+  background: linear-gradient(181.03deg, #FF9838 0.87%, #992222 99.12%);
+}
+
+#change-language img:not(#language-icon) {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: inline-block;
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 6px;
+}
+
+.button-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 8px;
 }
 
 hr {
