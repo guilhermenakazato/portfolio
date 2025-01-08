@@ -190,6 +190,8 @@ hr {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  transform: translate(0, -60px);
+  transition: 2s;
 }
 
 #menu img {
@@ -219,6 +221,9 @@ hr {
 
 #presentation {
   margin-top: 7vh;
+  transform: translate(0, 70vh);
+  opacity: 0;
+  transition: 3s;
 }
 
 #presentation div {
@@ -290,7 +295,7 @@ hr {
   padding: 25px;
   bottom: 10%;
   left: -70px;
-  transition: 0.40s;
+  transition: 0.4s;
   cursor: pointer;
   z-index: 3;
 }
@@ -320,10 +325,12 @@ hr {
 }
 
 #projects {
-  transform: rotate(-2deg);
+  transform: rotate(-2deg) translate(0, 520px);
   position: absolute;
   bottom: 0;
   right: 0;
+  opacity: 0;
+  transition: 3s;
 }
 
 #projects h2 {
@@ -510,7 +517,7 @@ figure span {
 }
 
 figure img:hover {
-  scale: 1.3;
+  scale: 1;
 }
 
 .grid figcaption {
@@ -643,7 +650,7 @@ figcaption h2 {
   transform: rotate(-10deg);
   position: absolute;
   top: 32px;
-  left: 25px;
+  left: 45px;
   opacity: 0;
   transition: 1s;
 }
@@ -680,7 +687,7 @@ img.visibility-icon {
 }
 
 #backend.skill-behind svg {
-  opacity: 1 !important;
+  opacity: 1;
 }
 
 #softskills {
