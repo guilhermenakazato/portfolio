@@ -294,10 +294,17 @@ hr {
   border-radius: 0 100px 100px 0;
   padding: 25px;
   bottom: 10%;
-  left: -70px;
-  transition: 0.4s;
+  transition: 2s;
   cursor: pointer;
-  z-index: 3;
+  z-index: 3; 
+}
+
+.language-start {
+  left: -190px;
+}
+
+.language-end {
+  left: -70px;
 }
 
 #language:hover {

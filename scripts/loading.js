@@ -5,10 +5,10 @@ var loadingOne = document.getElementById("loading-one")
 var loadingTwo = document.getElementById("loading-two")
 var loadingText = document.getElementById("loading-text")
 
+var languageDiv = document.getElementById("language")
 var menuDiv = document.getElementById("menu")
 var presentationDiv = document.getElementById("presentation")
 var projectsDiv = document.getElementById("projects")
-var languageDiv = document.getElementById("language")
 
 function adjustDOM(timeout) {
   setTimeout(() => {
@@ -36,7 +36,7 @@ function loadingPageAnimation() {
   adjustDOM(adjustDOMTimeout)
 }
 
-function loadComponentsAnimation() {  
+function loadComponentsAnimation() {
   setTimeout(() => {
     menuDiv.style.transform = "translate(0,0)"
 
@@ -45,10 +45,14 @@ function loadComponentsAnimation() {
 
     presentationDiv.style.transform = "translate(0,0)"
     presentationDiv.style.opacity = 1
-
-    languageDiv.style.left = "0px"
+    
+    languageDiv.classList.remove("language-start")
+    languageDiv.classList.add("language-end")
   }, 2000);
-
+  
+  setTimeout(() => {
+    languageDiv.style.transition = "0.4s"
+  }, 4000);
 }
 
 loadComponentsAnimation();
