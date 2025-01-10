@@ -17,26 +17,53 @@ function adjustDOM(timeout) {
   }, timeout);
 }
 
-function loadingPageAnimation() {
+function startAnimations() {
   let adjustDOMTimeout = 0;
+  let animationShouldPlay = typeof(Storage) !== "undefined" && (!localStorage.getItem("loaded") == "true" || localStorage.getItem("loaded") == null)
+  let componentStartTimeout = 0, componentEndTimeout = 0 
 
-  if(typeof(Storage) !== "undefined" && (!localStorage.getItem("loaded") == "true" || localStorage.getItem("loaded") == null)) {
-    loadingDiv.classList.remove("hide-div")
-    adjustDOMTimeout = 3250
-
-    setTimeout(() => {
-      loadingOne.style.width = 0
-      loadingTwo.style.width = 0
-      loadingText.style.opacity = 0
-    }, 2000);
-    
-    localStorage.setItem("loaded", "true") 
+  if(animationShouldPlay) {
+    adjustDOMTimeout = loadPageAnimation();
+    componentStartTimeout = 2000
+    componentEndTimeout = componentStartTimeout + 2000
   }
   
+  loadComponentsAnimation(componentStartTimeout, componentEndTimeout)
   adjustDOM(adjustDOMTimeout)
 }
 
-function loadComponentsAnimation() {
+function loadPageAnimation() {
+  let newTimeout = 3250
+  loadingDiv.classList.remove("hide-div")
+
+  setTimeout(() => {
+    loadingOne.style.width = 0
+    loadingTwo.style.width = 0
+    loadingText.style.opacity = 0
+  }, 2000);
+  
+  localStorage.setItem("loaded", "true") 
+
+  return newTimeout
+}
+
+function loadComponentsAnimation(startAnimationTimeout, endAnimationTimeout) {
+  setTimeout(() => {
+    menuDiv.style.transition = "0s"
+    projectsDiv.style.transition = "0s"
+    presentationDiv.style.transition = "0s"
+
+    if(endAnimationTimeout == 0) {
+      languageDiv.style.transition = "0s"
+
+      setTimeout(() => {
+        languageDiv.style.transition = "0.4s"
+      }, 100);
+    } else {
+      languageDiv.style.transition = "0.4s"
+    }
+  }, endAnimationTimeout); 
+  
   setTimeout(() => {
     menuDiv.style.transform = "translate(0,0)"
 
@@ -48,12 +75,7 @@ function loadComponentsAnimation() {
     
     languageDiv.classList.remove("language-start")
     languageDiv.classList.add("language-end")
-  }, 2000);
-  
-  setTimeout(() => {
-    languageDiv.style.transition = "0.4s"
-  }, 4000);
+  }, startAnimationTimeout); 
 }
 
-loadComponentsAnimation();
-loadingPageAnimation();
+startAnimations();
