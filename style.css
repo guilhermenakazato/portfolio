@@ -523,6 +523,10 @@ figure span {
   top: 40%;
 }
 
+.done h2 {
+  color: white;
+}
+
 figure img:hover {
   scale: 1;
 }
@@ -533,7 +537,7 @@ figure img:hover {
   left: 8px;
 }
 
-#selected-projects {
+#selected-projects-title {
   font-family: "Clash Grotesk";
   font-size: 70px;
   font-weight: 600;
