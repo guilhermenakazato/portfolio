@@ -38,6 +38,44 @@
         <path d="M15 15L1 1M15 1L1 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
+    <div id="project-info">
+      <div id="project-info-container">
+        <div id="project-info-menu">
+          <div>
+            <h1>GALERIA</h1>
+            <h2>Mobile</h2>
+          </div>
+          <h2 id="close-text" onclick="closeProjectInfoWindow()">Fechar</h2>
+        </div>
+        <div id="project-images">
+          <div>
+            <img src="./public/galeria/galeria1.png" alt="Foto da Galeria" class="mobile-image">
+          </div>
+          <div>
+            <img src="./public/galeria/galeria2.png" alt="Foto da Galeria" class="mobile-image">
+          </div>
+          <div>
+            <img src="./public/galeria/galeria3.png" alt="Foto da Galeria" class="mobile-image">
+          </div>
+          <div>
+            <img src="./public/galeria/galeria4.png" alt="Foto da Galeria" class="desktop-image">
+          </div>
+          <div>
+            <img src="./public/galeria/galeria5.png" alt="Foto da Galeria" class="desktop-image">
+          </div>
+        </div>
+        <div id="project-links">
+          <a>
+            <h2>Baixar projeto</h2>
+            <img src="./public/playstore-logo.svg" alt="Playstore logo">
+          </a>
+          <a href="https://github.com/guilhermenakazato/app-galeria" target="_blank" rel="noopener noreferrer">
+            <h2>Github</h2>
+            <img src="./public/github-logo.svg" alt="Github logo">
+          </a>
+        </div>
+      </div>
+    </div>
     <header>
       <div id="menu">
         <img src="./public/logo.png" alt="Pixel logo" />
@@ -90,11 +128,11 @@
       <section id="projects-container">
         <h1 id="selected-projects">PROJETOS SELECIONADOS</h1>
         <div class="grid">
-          <figure class="done hide-overflow">
-            <img src="./public/pixel.jpg" alt="pixel">
+          <figure class="done hide-overflow" onclick="showProjectInfoWindow()">
+            <img src="./public/galeria.png" alt="galeria">
             <figcaption>
-              <h1>PREVISÃO DO<br/>TEMPO</h1>
-              <h2>Android App</h2>
+              <h1>Save M.</h1>
+              <h2>Galeria</h2>
             </figcaption>
             <div id="open-overlay">
               <div class="blur"></div>
@@ -112,10 +150,10 @@
             </div>
           </figure>
           <figure class="in-progress hide-overflow">
-            <img src="./public/galeria.png" alt="galeria">
+            <img src="./public/pixel.jpg" alt="pixel">
             <figcaption>
-              <h1>Save M.</h1>
-              <h2>Galeria</h2>
+              <h1>PREVISÃO DO<br/>TEMPO</h1>
+              <h2>Android App</h2>
             </figcaption>
             <div id="open-overlay">
               <span>Em breve</span>
@@ -123,7 +161,6 @@
           </figure>
         </div>
       </section>
-
       <hr/>
       <section id="hardskills">
         <h1>Hard<span>skills</span></h1>
@@ -137,28 +174,28 @@
             <div class="skill-container">
               <div class="line">
                 <div>
-                  <img src="./public/java.png" alt="Java logo">
+                  <img src="./public/skill-logo/java.png" alt="Java logo">
                   <h3>Java</h3>
                 </div>
                 <div>
-                  <img src="./public/c.png" alt="C logo">
+                  <img src="./public/skill-logo/c.png" alt="C logo">
                   <h3>C</h3>
                 </div>
                 <div>
-                  <img src="./public/cpp.png" alt="C++ logo">
+                  <img src="./public/skill-logo/cpp.png" alt="C++ logo">
                   <h3>C++</h3>
                 </div>
                 <div>
-                  <img src="./public/dart.png" alt="Dart logo">
+                  <img src="./public/skill-logo/dart.png" alt="Dart logo">
                   <h3>Dart</h3>
                 </div>
               </div>
               <div class="line"><div>
-                <img src="./public/kotlin.png" alt="Kotlin logo">
+                <img src="./public/skill-logo/kotlin.png" alt="Kotlin logo">
                 <h3>Kotlin</h3>
               </div>
               <div>
-                <img src="./public/javascript.png" alt="Javascript logo">
+                <img src="./public/skill-logo/javascript.png" alt="Javascript logo">
                 <h3>Javascript</h3>
               </div>
             </div>  
@@ -170,11 +207,11 @@
             <div class="skill-container">
               <div class="line">
                 <div>
-                  <img src="./public/react.png" alt="React logo">
+                  <img src="./public/skill-logo/react.png" alt="React logo">
                   <h3>React</h3>
                 </div>
                 <div>
-                  <img src="./public/flutter.png" alt="React logo">
+                  <img src="./public/skill-logo/flutter.png" alt="React logo">
                   <h3>Flutter</h3>
                 </div>
               </div>
@@ -214,15 +251,17 @@
       </div>
       <div id="medias">
         <a href="https://github.com/guilhermenakazato" target="_blank" rel="noopener noreferrer">
-          <img src="./public/github_logo.png" alt="Github Logo"/>
+          <img src="./public/github-logo.svg" alt="Github Logo"/>
         </a>
         <a href="https://www.linkedin.com/in/guilherme-nakazato/" target="_blank" rel="noopener noreferrer">
-          <img src="./public/linkedin_logo.png" alt="LinkedIn Logo"/>
+          <img src="./public/linkedin-logo.svg" alt="LinkedIn Logo"/>
         </a>
       </div>
     </footer>
     <script src="./scripts/loading.js"></script>
     <script src="./scripts/language.js"></script>
     <script src="./scripts/skill.js"></script>
+    <script src="./scripts/projectInfo.js"></script>
+    <script src="./scripts/grabScroll.js"></script>
   </body>
 </html>

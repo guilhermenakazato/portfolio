@@ -1,6 +1,5 @@
 var body = document.querySelector("body")
 var changeLanguageDiv = document.getElementById("change-language")
-var closeButton = document.getElementById("close-button")
 
 function closeLanguageWindow() {
   body.style.overflowY = "visible"
