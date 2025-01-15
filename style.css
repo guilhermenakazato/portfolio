@@ -605,6 +605,7 @@ figure img:hover {
   gap: 2vw;
   overflow: hidden;
   cursor: grab;
+  user-select: none;
 }
 
 #project-images div {
@@ -619,8 +620,6 @@ figure img:hover {
   width: 60vh;
   height: 60vh;
   overflow: clip;
-  user-select: none;
-  -webkit-user-drag: none;
 }
 
 .mobile-image {

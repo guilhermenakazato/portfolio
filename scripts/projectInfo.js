@@ -1,5 +1,5 @@
-var body = document.querySelector("body")
-var projectInfoDiv = document.getElementById("project-info")
+var body = document.querySelector("body");
+var projectInfoDiv = document.getElementById("project-info");
 
 /* 
 {
@@ -8,133 +8,216 @@ var projectInfoDiv = document.getElementById("project-info")
   "progress": "done" | "in-progress",
   "main-image": "url",
   "main-image-description" : "text",
-  "screenshots": "folder_url" | null
-  "playstore-link": "link" | null
-  "github-link":  "link" | null
+  "playstore-link": "link" | null,
+  "github-link":  "link" | null,
+  "screenshots": [{
+    "url": "url",
+    "type": "mobile" | desktop
+  }]
 }
 */
 
-var selectedProjects = [{
-  "id": 0,
-  "title": "Galeria",
-  "subtitle": "Mobile App",
-  "progress": "done",
-  "main-image": "./public/galeria.png",
-  "main-image-description" : "galeria",
-  "screenshots": "./public/galeria",
-  "playstore-link": null,
-  "github-link":  "https://github.com/guilhermenakazato/app-galeria", 
-}, {
-  "id": 1,
-  "title": "PixelUI",
-  "subtitle": "Design System<br/>Em Produção",
-  "progress": "in-progress",
-  "main-image": "./public/pixelUI.jpg",
-  "main-image-description" : "pixel DS",
-  "screenshots": null,
-  "playstore-link": null,
-  "github-link": null, 
-}, {
-  "id": 2,
-  "title": "Previsão do<br/>Tempo",
-  "subtitle": "Mobile App",
-  "progress": "in-progress",
-  "main-image": "./public/pixel.jpg",
-  "main-image-description" : "pixel",
-  "screenshots": null,
-  "playstore-link": null,
-  "github-link": null, 
-}]
+var selectedProjects = [
+  {
+    id: 0,
+    title: "Galeria",
+    subtitle: "Mobile App",
+    progress: "done",
+    "main-image": "./public/galeria.png",
+    "main-image-description": "galeria",
+    "playstore-link": null,
+    "github-link": "https://github.com/guilhermenakazato/app-galeria",
+    screenshots: [
+      {
+        url: "./public/galeria/galeria1.png",
+        type: "mobile",
+      },
+      {
+        url: "./public/galeria/galeria2.png",
+        type: "mobile",
+      },
+      {
+        url: "./public/galeria/galeria3.png",
+        type: "mobile",
+      },
+      {
+        url: "./public/galeria/galeria4.png",
+        type: "desktop",
+      },
+      {
+        url: "./public/galeria/galeria5.png",
+        type: "desktop",
+      },
+    ],
+  },
+  {
+    id: 1,
+    title: "PixelUI",
+    subtitle: "Design System<br/>Em Produção",
+    progress: "in-progress",
+    "main-image": "./public/pixelUI.jpg",
+    "main-image-description": "pixel DS",
+    screenshots: null,
+    "playstore-link": null,
+    "github-link": null,
+  },
+  {
+    id: 2,
+    title: "Previsão do<br/>Tempo",
+    subtitle: "Mobile App",
+    progress: "in-progress",
+    "main-image": "./public/pixel.jpg",
+    "main-image-description": "pixel",
+    screenshots: null,
+    "playstore-link": null,
+    "github-link": null,
+  },
+];
 
 function generateSelectedProjects() {
-  let selectedProjectsDiv = document.getElementById("selected-projects")
+  let selectedProjectsDiv = document.getElementById("selected-projects");
 
   selectedProjects.forEach((project) => {
-    let onClickFunction = project.progress == "done" ? `onclick=showProjectInfoWindow(${project.id})` : ""
-    let openOverlayDiv = project.progress == "done" ? 
-    `<div id="open-overlay">
+    let onClickFunction =
+      project.progress == "done"
+        ? `onclick=showProjectInfoWindow(${project.id})`
+        : "";
+    let openOverlayDiv =
+      project.progress == "done"
+        ? `<div id="open-overlay">
         <div class="blur"></div>
         <span>Ver</span>
-     </div>` : 
-     `<div id="open-overlay">
+     </div>`
+        : `<div id="open-overlay">
         <span>Em breve</span>
-      </div>`
+      </div>`;
 
-    selectedProjectsDiv.innerHTML += `
-      <figure class="${project.progress} hide-overflow" ` + onClickFunction + `>
+    selectedProjectsDiv.innerHTML +=
+      `
+      <figure class="${project.progress} hide-overflow" ` +
+      onClickFunction +
+      `>
         <img src="${project["main-image"]}" alt="${project["main-image-description"]}">
         <figcaption>
           <h1>${project.title}</h1>
           <h2>${project.subtitle}</h2>
         </figcaption>
-      ` + openOverlayDiv + `
-      </figure>`
-  })
+      ` +
+      openOverlayDiv +
+      `
+      </figure>`;
+  });
 }
 
 function generateProjectInfoDiv(projectId) {
-  let projectInfoDiv = document.getElementById("project-info")
-  let project = selectedProjects[projectId]
+  let project = selectedProjects[projectId];
 
-  projectInfoDiv.innerHTML = `
+  let infoMenu = `
     <div id="project-info-container">
-      <div id="project-info-menu">
-        <div>
-          <h1>${project.title.toUpperCase()}</h1>
-          <h2>${project.subtitle}</h2>
+        <div id="project-info-menu">
+          <div>
+            <h1>${project.title.toUpperCase()}</h1>
+            <h2>${project.subtitle}</h2>
+          </div>
+          <h2 id="close-text" onclick="closeProjectInfoWindow()">Fechar</h2>
         </div>
-        <h2 id="close-text" onclick="closeProjectInfoWindow()">Fechar</h2>
-      </div>
-      <div id="project-images">
+        <div id="project-images">
+        `;
+
+  let images = "";
+  project.screenshots.forEach((image) => {
+    images += `
         <div>
-          <img src="./public/galeria/galeria1.png" alt="Screenshot do projeto Galeria" class="mobile-image">
+            <img src="${image.url}" alt="Screenshot do projeto "${project.title}"" class="${image.type}-image" ondragstart="return false;">
         </div>
-        <div>
-          <img src="./public/galeria/galeria2.png" alt="Screenshot do projeto Galeria" class="mobile-image">
-        </div>
-        <div>
-          <img src="./public/galeria/galeria3.png" alt="Screenshot do projeto Galeria" class="mobile-image">
-        </div>
-        <div>
-          <img src="./public/galeria/galeria4.png" alt="Screenshot do projeto Galeria" class="desktop-image">
-        </div>
-        <div>
-          <img src="./public/galeria/galeria5.png" alt="Screenshot do projeto Galeria" class="desktop-image">
-        </div>
-      </div>
-      <div id="project-links">
-        <a>
-          <h2>Baixar projeto</h2>
-          <img src="./public/playstore-logo.svg" alt="Playstore logo">
-        </a>
-        <a href="https://github.com/guilhermenakazato/app-galeria" target="_blank" rel="noopener noreferrer">
-          <h2>Github</h2>
-          <img src="./public/github-logo.svg" alt="Github logo">
-        </a>
-      </div>
-    </div>
-  `
+      `;
+  });
+  images += "</div>";
+
+  let playstoreLink =
+    project["playstore-link"] == null
+      ? ""
+      : `<a>
+            <h2>Baixar projeto</h2>
+            <img src="./public/playstore-logo.svg" alt="Playstore logo">
+          </a>`;
+
+  let githubLink =
+    project["github-link"] == null
+      ? ""
+      : `
+          <a href="https://github.com/guilhermenakazato/app-galeria" target="_blank" rel="noopener noreferrer">
+            <h2>Github</h2>
+            <img src="./public/github-logo.svg" alt="Github logo">
+          </a>`;
+
+  let links =
+    `<div id="project-links">` +
+    playstoreLink +
+    githubLink +
+    `</div>
+      </div>`;
+
+  projectInfoDiv.innerHTML = infoMenu + images + links;
+  grabImagesToScroll();
+}
+
+function grabImagesToScroll() {
+  var projectImageDiv = document.getElementById("project-images");
+  let pos = { top: 0, left: 0, x: 0, y: 0 };
+
+  const mouseDownHandler = function (e) {
+    projectImageDiv.style.cursor = "grabbing";
+    projectImageDiv.style.userSprojectImageDivct = "none";
+
+    pos = {
+      left: projectImageDiv.scrollLeft,
+      top: projectImageDiv.scrollTop,
+      x: e.clientX,
+      y: e.clientY,
+    };
+
+    document.addEventListener("mousemove", mouseMoveHandler);
+    document.addEventListener("mouseup", mouseUpHandler);
+  };
+
+  const mouseMoveHandler = function (e) {
+    const dx = e.clientX - pos.x;
+    const dy = e.clientY - pos.y;
+
+    projectImageDiv.scrollTop = pos.top - dy;
+    projectImageDiv.scrollLeft = pos.left - dx;
+  };
+
+  const mouseUpHandler = function () {
+    projectImageDiv.style.cursor = "grab";
+    projectImageDiv.style.removeProperty("user-select");
+
+    document.removeEventListener("mousemove", mouseMoveHandler);
+    document.removeEventListener("mouseup", mouseUpHandler);
+  };
+
+  projectImageDiv.addEventListener("mousedown", mouseDownHandler);
 }
 
 function destroyProjectInfoDiv() {
-  let projectInfoDiv = document.getElementById("project-info")
-  projectInfoDiv.innerHTML = ""
+  projectInfoDiv.innerHTML = "";
 }
 
 function closeProjectInfoWindow() {
-  body.style.overflowY = "visible"
-  projectInfoDiv.style.display = "none"
-  projectInfoDiv.style.appearance = "hidden"
+  body.style.overflowY = "visible";
+  projectInfoDiv.style.display = "none";
+  projectInfoDiv.style.appearance = "hidden";
 
-  destroyProjectInfoDiv()
+  destroyProjectInfoDiv();
 }
 
 function showProjectInfoWindow(projectId) {
-  generateProjectInfoDiv(projectId)
+  generateProjectInfoDiv(projectId);
 
-  body.style.overflowY = "hidden"
-  projectInfoDiv.style.display = "flex"
-  projectInfoDiv.style.appearance = "auto"
+  body.style.overflowY = "hidden";
+  projectInfoDiv.style.display = "flex";
+  projectInfoDiv.style.appearance = "auto";
 }
 
-generateSelectedProjects()
+generateSelectedProjects();
