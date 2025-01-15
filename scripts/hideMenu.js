@@ -30,14 +30,9 @@ function handleIntersect(entries, observer) {
     console.log("Current ratio: " + currentRatio)
 
     if(currentRatio > previousRatio && currentRatio >= threshold) {
-      menuDiv.style.transition = "0.5s"
-      menuDiv.style.opacity = 0
+      menuDiv.style.display = "none"
     } else {
-      menuDiv.style.opacity = 1
-      
-      setTimeout(() => {
-        menuDiv.style.transition = "0s"
-      }, 2000);
+      menuDiv.style.display = "flex"
     }
 
     previousRatio = currentRatio

@@ -1,5 +1,6 @@
 var body = document.querySelector("body");
 var projectInfoDiv = document.getElementById("project-info");
+var menuDiv = document.getElementById("menu")
 
 /* 
 {
@@ -210,6 +211,7 @@ function closeProjectInfoWindow() {
   projectInfoDiv.style.appearance = "hidden";
 
   destroyProjectInfoDiv();
+  menuDiv.style.opacity = 1
 }
 
 function showProjectInfoWindow(projectId) {
@@ -218,6 +220,8 @@ function showProjectInfoWindow(projectId) {
   body.style.overflowY = "hidden";
   projectInfoDiv.style.display = "flex";
   projectInfoDiv.style.appearance = "auto";
+
+  menuDiv.style.opacity = 0
 }
 
 generateSelectedProjects();

@@ -48,12 +48,12 @@ header {
 }
 
 #menu {
+  display: flex;
   position: fixed;
   bottom: 16px;
   right: 50%;
   z-index: 3;
   transform: translate(50%, 0);
-  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -61,7 +61,6 @@ header {
   background-color: #000000FA;
   padding: 20px;
   border-radius: 20px;
-
   transition: 2s;
   opacity: 0;
 }
