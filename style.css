@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 
 :root {
   --primary-color: #fbcdb6;
@@ -32,6 +32,10 @@
   visibility: hidden;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -41,6 +45,56 @@ header {
   width: calc(100% - 12vw);
   overflow: clip;
   position: relative;
+}
+
+#menu {
+  position: fixed;
+  bottom: 16px;
+  right: 50%;
+  z-index: 3;
+  transform: translate(50%, 0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background-color: #000000FA;
+  padding: 20px;
+  border-radius: 20px;
+
+  transition: 2s;
+  opacity: 0;
+}
+
+#menu button {
+  background-color: black;
+  font-family: "Roboto Flex";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 23.44px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  width: 80px;
+  text-align: center;
+  transition: 0.25s;
+}
+
+#menu a {
+  text-decoration: none;
+}
+
+#menu button:hover {
+  background-color: var(--secondary-color);
+}
+
+#menu button:active {
+  background-color: var(--on-buttonclick-color);
 }
 
 #change-language {
@@ -83,7 +137,7 @@ header {
   border: none;
   outline: none;
   color: white;
-  font-family: Roboto Flex;
+  font-family: "Roboto Flex";
   font-size: 14px;
   font-weight: 400;
   line-height: 23.44px;
@@ -184,39 +238,6 @@ hr {
   justify-content: end;
   align-items: end;
   margin-left: auto;
-}
-
-#menu {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  transform: translate(0, -60px);
-  transition: 2s;
-}
-
-#menu img {
-  width: 26px;
-  height: 26px;
-}
-
-#menu-tab img {
-  width: 40px;
-  height: 40px;
-}
-
-#menu-tab {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  align-items: center;
-  cursor: pointer;
-}
-
-#menu-tab span {
-  font-family: "JetBrains Mono";
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 26.4px;
 }
 
 #presentation {
@@ -838,7 +859,7 @@ img.visibility-icon {
 }
 
 #softskills h2 {
-  font-family: Roboto Flex;
+  font-family: "Roboto Flex";
   font-size: 30px;
   font-weight: 800;
   line-height: 35.16px;
@@ -849,7 +870,7 @@ img.visibility-icon {
 }
 
 #softskills p {
-  font-family: Roboto Flex;
+  font-family: "Roboto Flex";
   font-size: 18px;
   font-style: italic;
   font-weight: 500;

@@ -49,9 +49,9 @@ function loadPageAnimation() {
 
 function loadComponentsAnimation(startAnimationTimeout, endAnimationTimeout) {
   setTimeout(() => {
-    menuDiv.style.transition = "0s"
     projectsDiv.style.transition = "0s"
     presentationDiv.style.transition = "0s"
+    menuDiv.style.transition = "0s"
 
     if(endAnimationTimeout == 0) {
       languageDiv.style.transition = "0s"
@@ -65,7 +65,7 @@ function loadComponentsAnimation(startAnimationTimeout, endAnimationTimeout) {
   }, endAnimationTimeout); 
   
   setTimeout(() => {
-    menuDiv.style.transform = "translate(0,0)"
+    menuDiv.style.opacity = 1
 
     projectsDiv.style.transform = "rotate(-2deg) translate(0,0)"
     projectsDiv.style.opacity = 1

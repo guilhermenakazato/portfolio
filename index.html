@@ -39,49 +39,20 @@
       </svg>
     </div>
     <div id="project-info">
-      <!-- <div id="project-info-container">
-        <div id="project-info-menu">
-          <div>
-            <h1>GALERIA</h1>
-            <h2>Mobile</h2>
-          </div>
-          <h2 id="close-text" onclick="closeProjectInfoWindow()">Fechar</h2>
-        </div>
-        <div id="project-images">
-          <div>
-            <img src="./public/galeria/galeria1.png" alt="Foto da Galeria" class="mobile-image" ondragstart="return false;">
-          </div>
-          <div>
-            <img src="./public/galeria/galeria2.png" alt="Foto da Galeria" class="mobile-image" ondragstart="return false;">
-          </div>
-          <div>
-            <img src="./public/galeria/galeria3.png" alt="Foto da Galeria" class="mobile-image" ondragstart="return false;">
-          </div>
-          <div>
-            <img src="./public/galeria/galeria4.png" alt="Foto da Galeria" class="desktop-image" ondragstart="return false;">
-          </div>
-          <div>
-            <img src="./public/galeria/galeria5.png" alt="Foto da Galeria" class="desktop-image" ondragstart="return false;">
-          </div>
-        </div>
-        <div id="project-links">
-          <a>
-            <h2>Baixar projeto</h2>
-            <img src="./public/playstore-logo.svg" alt="Playstore logo">
-          </a>
-          <a href="https://github.com/guilhermenakazato/app-galeria" target="_blank" rel="noopener noreferrer">
-            <h2>Github</h2>
-            <img src="./public/github-logo.svg" alt="Github logo">
-          </a>
-        </div>
-      </div> -->
     </div>
-    <header>
+    <header id="hello">
       <div id="menu">
-        <img src="./public/logo.png" alt="Pixel logo" />
-        <div id="menu-tab">
-          <img src="./public/menu-icon.png" alt="Menu icon" />
-          <span>menu...</span>
+        <img src="./public/logo.png" alt="Pixel ícone">
+        <div class="link-buttons">
+          <a href="#hello">
+            <button>Início</button>
+          </a>
+          <a href="#my-works">
+            <button>Projetos</button>
+          </a>
+          <a href="#call-me-maybe">
+            <button>Contato</button>
+          </a>
         </div>
       </div>
       <div id="presentation">
@@ -115,7 +86,7 @@
       </div>
     </header>
 
-    <main>
+    <main id="my-works">
       <section id="job-description">
         <h1>DESENVOLVEDOR EMERGENTE, <span>FRONT-END</span> E <span>BACK-END</span></h1>
         <h1>CRIANDO <span>MOBILE, DESKTOP</span> E APLICANDO <span>DESIGNS MODERNOS</span></h1>
@@ -211,7 +182,7 @@
       </section>
     </main>
 
-    <footer>
+    <footer id="call-me-maybe">
       <h1>Entre em<br />contato</h1>
       <div id="email">
         <img src="./public/send_icon.png" alt="Send icon" />
@@ -231,5 +202,6 @@
     <script src="./scripts/language.js"></script>
     <script src="./scripts/skill.js"></script>
     <script src="./scripts/projectInfo.js"></script>
+    <script src="./scripts/hideMenu.js"></script>
   </body>
 </html>
