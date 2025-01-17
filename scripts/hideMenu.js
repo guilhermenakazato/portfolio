@@ -14,7 +14,7 @@ function createObserver() {
   let options = {
     root: null,
     rootMargin: "0px",
-    threshold:  0.3,
+    threshold:  0.2,
   };
 
   observer = new IntersectionObserver(handleIntersect, options);
@@ -26,13 +26,17 @@ function handleIntersect(entries, observer) {
     let currentRatio = entry.intersectionRatio 
     let threshold = observer.thresholds[0]
 
-    console.log("Previous ratio: " + previousRatio)
-    console.log("Current ratio: " + currentRatio)
-
     if(currentRatio > previousRatio && currentRatio >= threshold) {
-      menuDiv.style.display = "none"
-    } else {
-      menuDiv.style.display = "flex"
+      menuDiv.style.transition = "0.5s"
+      menuDiv.style.opacity = 0
+      menuDiv.style.visibility = "hidden"
+    } else {      
+      menuDiv.style.visibility = "visible"
+      menuDiv.style.opacity = 1
+
+      setTimeout(() => {
+        menuDiv.style.transition = "0s"
+      }, 500);
     }
 
     previousRatio = currentRatio

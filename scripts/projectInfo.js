@@ -22,7 +22,7 @@ var selectedProjects = [
   {
     id: 0,
     title: "Galeria",
-    subtitle: "Mobile App",
+    subtitle: "Mobile",
     progress: "done",
     "main-image": "./public/galeria.png",
     "main-image-description": "galeria",
@@ -64,8 +64,8 @@ var selectedProjects = [
   },
   {
     id: 2,
-    title: "Previsão do<br/>Tempo",
-    subtitle: "Mobile App",
+    title: "Cloud<br/>Radar",
+    subtitle: "Mobile",
     progress: "in-progress",
     "main-image": "./public/pixel.jpg",
     "main-image-description": "pixel",
@@ -87,10 +87,10 @@ function generateSelectedProjects() {
       project.progress == "done"
         ? `<div id="open-overlay">
         <div class="blur"></div>
-        <span>Ver</span>
+        <span id="see-more-text">Ver</span>
      </div>`
         : `<div id="open-overlay">
-        <span>Em breve</span>
+        <span id="coming-soon-text">Em breve</span>
       </div>`;
 
     selectedProjectsDiv.innerHTML +=
@@ -112,6 +112,7 @@ function generateSelectedProjects() {
 
 function generateProjectInfoDiv(projectId) {
   let project = selectedProjects[projectId];
+  let closeText = localStorage.getItem("language") == "pt-BR" ? "Fechar" : "Close"
 
   let infoMenu = `
     <div id="project-info-container">
@@ -120,7 +121,7 @@ function generateProjectInfoDiv(projectId) {
             <h1>${project.title.toUpperCase()}</h1>
             <h2>${project.subtitle}</h2>
           </div>
-          <h2 id="close-text" onclick="closeProjectInfoWindow()">Fechar</h2>
+          <h2 id="close-text" onclick="closeProjectInfoWindow()">${closeText}</h2>
         </div>
         <div id="project-images">
         `;
@@ -211,7 +212,7 @@ function closeProjectInfoWindow() {
   projectInfoDiv.style.appearance = "hidden";
 
   destroyProjectInfoDiv();
-  menuDiv.style.opacity = 1
+  menuDiv.style.display = "flex"
 }
 
 function showProjectInfoWindow(projectId) {
@@ -221,7 +222,7 @@ function showProjectInfoWindow(projectId) {
   projectInfoDiv.style.display = "flex";
   projectInfoDiv.style.appearance = "auto";
 
-  menuDiv.style.opacity = 0
+  menuDiv.style.display = "none"
 }
 
 generateSelectedProjects();

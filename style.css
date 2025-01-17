@@ -164,6 +164,7 @@ button.unselected-button:active {
 
 .unselected-button {
   background-color: black;
+  cursor: pointer;
 }
 
 .selected-button {
@@ -180,6 +181,7 @@ button.unselected-button:active {
   border-radius: 6px;
   color: var(--close-icon-color);
   transition: 0.25s;
+  cursor: pointer;
 }
 
 #change-language svg:hover {
