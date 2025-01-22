@@ -4,7 +4,7 @@ var menuDiv = document.getElementById("menu")
 var chosenLanguage = "pt-BR";
 var languageWindowClosed;
 
-var strings = {
+var uniqueStrings = {
   "en-US": {
     "my-name": "Hello, I'm Guilherme...",
     "my-job-position": "Fullstack<br/>Developer",
@@ -27,8 +27,6 @@ var strings = {
     "adaptability-explanation": "Adaptability is an important soft skill that helps programmers to easily adjust to new technologies, methodologies, and project requisites.",
     "communication-explanation": "Communication is an important soft skill that allows programmers to have a better understanding of the product they are developing.",
     "teamwork-explanation": "Teamwork is an important soft skill that allows programmers to develop large scale projects, with the help of many collaborators.",
-    "see-more-text": "Look",
-    "coming-soon-text": "Soon...",
   },
   "pt-BR": {
     "my-name": "Olá, sou Guilherme...",    
@@ -52,6 +50,15 @@ var strings = {
     "communication-explanation": "A comunicação é uma soft skill importante que permite que os programadores tenham um melhor entendimento do produto que estão desenvolvendo.",
     "teamwork-explanation": "O trabalho em equipe é uma soft skill importante que permite que os programadores desenvolvam projetos de grande escala, com a ajuda de vários colaboradores.",
     "adaptability-explanation": "A adaptabilidade é uma soft skill importante que permite que os programadores se ajustem facilmente a novas tecnologias, metodologias e requisitos de projeto.",
+  }
+}
+
+var repeatedStrings = {
+  "en-US": {
+    "see-more-text": "Look",
+    "coming-soon-text": "Soon...",
+  }, 
+  "pt-BR": {
     "see-more-text": "Ver",
     "coming-soon-text": "Em breve",
   }
@@ -75,33 +82,51 @@ function showLanguageWindow() {
   menuDiv.style.display = "none"
 }
 
-function initializeDefaultLanguage() {
-  let shouldInitializeDefaultLanguage = typeof(Storage) !== "undefined" && localStorage.getItem("language") == null
-  let defaultLanguage;
+function storeLanguageValue(language) {
+  localStorage.setItem("language", language)
+  chosenLanguage = language
+}
 
-  if(shouldInitializeDefaultLanguage) {
-    defaultLanguage = navigator.language || navigator.userLanguage;
+function getWebsiteLanguage() {
+  let language;
 
-    if(defaultLanguage == "en") defaultLanguage = "en-US"
-    if(defaultLanguage == "pt") defaultLanguage = "pt-BR"
-    localStorage.setItem("language", defaultLanguage)
+  if(typeof(Storage) !== "undefined") {
+    language = localStorage.getItem("language")
+
+    if(language == null) {
+      language = navigator.language || navigator.userLanguage;
+      
+      if(language == "en") language = "en-US"
+      if(language == "pt") language = "pt-BR"
+  
+      storeLanguageValue(language)
+    } else {
+      chosenLanguage = language
+    }
   }
 
-  if(defaultLanguage != "pt-BR") {
-    chosenLanguage = defaultLanguage
-    console.log(chosenLanguage)
+  if(chosenLanguage != "pt-BR") {
     changeLanguageButtonStyle(chosenLanguage)
     changeLanguage()
   }
 }
 
 function changeLanguage() {
-  console.log(chosenLanguage)
-  let ids = Object.keys(strings[chosenLanguage])
+  let ids = Object.keys(uniqueStrings[chosenLanguage])
+  let classnames = Object.keys(repeatedStrings[chosenLanguage])
   
   ids.forEach(id => {
     let elementWithText = document.getElementById(id)
-    elementWithText.innerHTML = strings[chosenLanguage][id]
+    elementWithText.innerHTML = uniqueStrings[chosenLanguage][id]
+  })
+
+  classnames.forEach(classname => {
+    let repeatedElementsWithText = document.getElementsByClassName(classname)
+    
+    for(let i = 0; i < repeatedElementsWithText.length; i++) {
+      let textElement = repeatedElementsWithText[i]
+      textElement.innerHTML = repeatedStrings[chosenLanguage][classname]
+    }
   })
   
   if(!languageWindowClosed) closeLanguageWindow()
@@ -118,9 +143,8 @@ function changeLanguageButtonStyle(language) {
     englishButton.classList.toggle("selected-button")
     englishButton.classList.toggle("unselected-button")
 
-    chosenLanguage = language
-    localStorage.setItem("language", language)
+    storeLanguageValue(language)
   } 
 }
 
-initializeDefaultLanguage()
+getWebsiteLanguage()

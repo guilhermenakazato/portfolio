@@ -54,7 +54,7 @@ var selectedProjects = [
   {
     id: 1,
     title: "PixelUI",
-    subtitle: "Design System<br/>Em Produção",
+    subtitle: "Design System",
     progress: "in-progress",
     "main-image": "./public/pixelUI.jpg",
     "main-image-description": "pixel DS",
@@ -87,10 +87,10 @@ function generateSelectedProjects() {
       project.progress == "done"
         ? `<div id="open-overlay">
         <div class="blur"></div>
-        <span id="see-more-text">Ver</span>
+        <span class="see-more-text">Ver</span>
      </div>`
         : `<div id="open-overlay">
-        <span id="coming-soon-text">Em breve</span>
+        <span class="coming-soon-text">Em breve</span>
       </div>`;
 
     selectedProjectsDiv.innerHTML +=
