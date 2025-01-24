@@ -1,10 +1,10 @@
-var body = document.querySelector("body")
-var changeLanguageDiv = document.getElementById("change-language")
-var menuDiv = document.getElementById("menu")
-var chosenLanguage = "pt-BR";
-var languageWindowClosed;
+let body = document.querySelector("body")
+let changeLanguageDiv = document.getElementById("change-language")
+let languageWindowMenuDiv = document.getElementById("menu")
+let chosenLanguage = "pt-BR";
+let languageWindowClosed;
 
-var uniqueStrings = {
+let uniqueStrings = {
   "en-US": {
     "my-name": "Hello, I'm Guilherme...",
     "my-job-position": "Fullstack<br/>Developer",
@@ -53,7 +53,7 @@ var uniqueStrings = {
   }
 }
 
-var repeatedStrings = {
+let repeatedStrings = {
   "en-US": {
     "see-more-text": "Look",
     "coming-soon-text": "Soon...",
@@ -69,7 +69,7 @@ function closeLanguageWindow() {
   changeLanguageDiv.style.display = "none"
   changeLanguageDiv.style.appearance = "hidden"
   
-  menuDiv.style.display = "flex"
+  languageWindowMenuDiv.style.display = "flex"
   languageWindowClosed = true
 }
 
@@ -79,7 +79,7 @@ function showLanguageWindow() {
   changeLanguageDiv.style.display = "flex"
   changeLanguageDiv.style.appearance = "auto"
 
-  menuDiv.style.display = "none"
+  languageWindowMenuDiv.style.display = "none"
 }
 
 function storeLanguageValue(language) {
@@ -99,19 +99,22 @@ function getWebsiteLanguage() {
       if(language == "en") language = "en-US"
       if(language == "pt") language = "pt-BR"
   
-      storeLanguageValue(language)
-    } else {
-      chosenLanguage = language
-    }
+      localStorage.setItem("language", language)
+    } 
+
+    chosenLanguage = language
   }
 
   if(chosenLanguage != "pt-BR") {
     changeLanguageButtonStyle(chosenLanguage)
-    changeLanguage()
+    changeLanguage(false)
   }
 }
 
-function changeLanguage() {
+function changeLanguage(changedFromButton) {
+  if(changedFromButton)
+    localStorage.setItem("language", chosenLanguage)
+
   let ids = Object.keys(uniqueStrings[chosenLanguage])
   let classnames = Object.keys(repeatedStrings[chosenLanguage])
   
@@ -143,7 +146,7 @@ function changeLanguageButtonStyle(language) {
     englishButton.classList.toggle("selected-button")
     englishButton.classList.toggle("unselected-button")
 
-    storeLanguageValue(language)
+    chosenLanguage = language
   } 
 }
 

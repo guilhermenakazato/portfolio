@@ -1,6 +1,6 @@
-var body = document.querySelector("body");
-var projectInfoDiv = document.getElementById("project-info");
-var menuDiv = document.getElementById("menu")
+let projectInfoDiv = document.getElementById("project-info");
+let projectInfoMenuDiv = document.getElementById("menu")
+let projectInfoBody = document.querySelector("body")
 
 /* 
 {
@@ -18,7 +18,7 @@ var menuDiv = document.getElementById("menu")
 }
 */
 
-var selectedProjects = [
+let selectedProjects = [
   {
     id: 0,
     title: "Galeria",
@@ -165,7 +165,7 @@ function generateProjectInfoDiv(projectId) {
 }
 
 function grabImagesToScroll() {
-  var projectImageDiv = document.getElementById("project-images");
+  let projectImageDiv = document.getElementById("project-images");
   let pos = { top: 0, left: 0, x: 0, y: 0 };
 
   const mouseDownHandler = function (e) {
@@ -212,7 +212,7 @@ function closeProjectInfoWindow() {
   projectInfoDiv.style.appearance = "hidden";
 
   destroyProjectInfoDiv();
-  menuDiv.style.display = "flex"
+  projectInfoMenuDiv.style.display = "flex"
 }
 
 function showProjectInfoWindow(projectId) {
@@ -222,7 +222,7 @@ function showProjectInfoWindow(projectId) {
   projectInfoDiv.style.display = "flex";
   projectInfoDiv.style.appearance = "auto";
 
-  menuDiv.style.display = "none"
+  projectInfoMenuDiv.style.display = "none"
 }
 
 generateSelectedProjects();

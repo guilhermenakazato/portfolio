@@ -1,25 +1,28 @@
-var body = document.querySelector("body")
+let loadingDiv = document.getElementById("loading")
+let loadingOne = document.getElementById("loading-one")
+let loadingTwo = document.getElementById("loading-two")
+let loadingText = document.getElementById("loading-text")
 
-var loadingDiv = document.getElementById("loading")
-var loadingOne = document.getElementById("loading-one")
-var loadingTwo = document.getElementById("loading-two")
-var loadingText = document.getElementById("loading-text")
+let loadingBody = document.querySelector("body")
+let loadLanguageDiv = document.getElementById("language")
+// let loadMenuDiv = document.getElementById("menu")
+let loadPresentationDiv = document.getElementById("presentation")
+let loadProjectsDiv = document.getElementById("projects")
 
-var languageDiv = document.getElementById("language")
-var menuDiv = document.getElementById("menu")
-var presentationDiv = document.getElementById("presentation")
-var projectsDiv = document.getElementById("projects")
+// vo usar no hideMenu.js... deve ter algum jeito melhor mas eu n sei direito
+// sou apenas um mero junior
+var animationShouldPlay;
 
 function adjustDOM(timeout) {
   setTimeout(() => {
     loadingDiv.remove()
-    body.classList.remove("hide-overflow")
+    loadingBody.classList.remove("hide-overflow")
   }, timeout);
 }
 
 function startAnimations() {
   let adjustDOMTimeout = 0;
-  let animationShouldPlay = typeof(Storage) !== "undefined" && (!localStorage.getItem("loaded") == "true" || localStorage.getItem("loaded") == null)
+  animationShouldPlay = typeof(Storage) !== "undefined" && (!localStorage.getItem("loaded") == "true" || localStorage.getItem("loaded") == null)
   let componentStartTimeout = 0, componentEndTimeout = 0 
 
   if(animationShouldPlay) {
@@ -49,32 +52,34 @@ function loadPageAnimation() {
 
 function loadComponentsAnimation(startAnimationTimeout, endAnimationTimeout) {
   setTimeout(() => {
-    projectsDiv.style.transition = "0s"
-    presentationDiv.style.transition = "0s"
-    menuDiv.style.transition = "0s"
+    loadProjectsDiv.style.transition = "0s"
+    loadPresentationDiv.style.transition = "0s"
+    // loadMenuDiv.style.transition = "0s"
 
     if(endAnimationTimeout == 0) {
-      languageDiv.style.transition = "0s"
+      loadLanguageDiv.style.transition = "0s"
 
       setTimeout(() => {
-        languageDiv.style.transition = "0.4s"
+        loadLanguageDiv.style.transition = "0.4s"
       }, 100);
     } else {
-      languageDiv.style.transition = "0.4s"
+      loadLanguageDiv.style.transition = "0.4s"
     }
+
+    animationShouldPlay = false
   }, endAnimationTimeout); 
   
   setTimeout(() => {
-    menuDiv.style.opacity = 1
+    // loadMenuDiv.style.opacity = 1
 
-    projectsDiv.style.transform = "rotate(-2deg) translate(0,0)"
-    projectsDiv.style.opacity = 1
+    loadProjectsDiv.style.transform = "rotate(-2deg) translate(0,0)"
+    loadProjectsDiv.style.opacity = 1
 
-    presentationDiv.style.transform = "translate(0,0)"
-    presentationDiv.style.opacity = 1
+    loadPresentationDiv.style.transform = "translate(0,0)"
+    loadPresentationDiv.style.opacity = 1
     
-    languageDiv.classList.remove("language-start")
-    languageDiv.classList.add("language-end")
+    loadLanguageDiv.classList.remove("language-start")
+    loadLanguageDiv.classList.add("language-end")
   }, startAnimationTimeout); 
 }
 

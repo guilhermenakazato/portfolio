@@ -1,5 +1,5 @@
-var frontendDiv = document.getElementById("frontend")
-var backendDiv = document.getElementById("backend")
+let frontendDiv = document.getElementById("frontend")
+let backendDiv = document.getElementById("backend")
 
 function switchShowingDiv(divClicked) {
   let mappedDivs = ["backend", "frontend"]
