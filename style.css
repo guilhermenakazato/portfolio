@@ -47,7 +47,6 @@ header {
   position: relative;
   object-fit: cover;
   background-repeat: no-repeat;
-  border: 1px solid red;
 }
 
 #menu {
@@ -452,9 +451,9 @@ main {
 
 #job-description h1 {
   font-family: "Clash Grotesk";
-  font-size: 30px;
+  font-size: 2rem;
   font-weight: 500;
-  line-height: 45px;
+  line-height: 1.5em;
   letter-spacing: 0.02em;
   text-align: center;
   text-underline-position: from-font;
@@ -571,7 +570,7 @@ figure img:hover {
 
 #selected-projects-title {
   font-family: "Clash Grotesk";
-  font-size: 70px;
+  font-size: 4rem;
   font-weight: 600;
   line-height: 86.1px;
   letter-spacing: 0.02em;
@@ -735,7 +734,7 @@ figcaption h2 {
 
 #hardskills h1 {
   font-family: "Clash Grotesk";
-  font-size: 70px;
+  font-size: 4rem;
   font-weight: 700;
   line-height: 86.1px;
   letter-spacing: 0.02em;
@@ -789,7 +788,6 @@ figcaption h2 {
   align-items: center;
   justify-content: center;
   gap: 40px;
-  margin-bottom: 40px;
 }
 
 #backend {
@@ -848,6 +846,16 @@ img.visibility-icon {
   opacity: 1;
 }
 
+.skill-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.skill-container img {
+  width: 30%;
+}
+
 #softskills {
   width: 94%;
 }
@@ -861,7 +869,7 @@ img.visibility-icon {
 
 #softskills h1 {
   font-family: "Clash Grotesk";
-  font-size: 70px;
+  font-size: 4rem;
   font-weight: 700;
   line-height: 86.1px;
   letter-spacing: 0.02em;
@@ -908,9 +916,9 @@ footer {
 
 footer h1 {
   font-family: "Clash Grotesk";
-  font-size: 170px;
+  font-size: 10rem;
   font-weight: 600;
-  line-height: 209.1px;
+  line-height: 1.5em;
   letter-spacing: 0.02em;
   text-align: center;
   text-underline-position: from-font;
@@ -950,6 +958,8 @@ footer a {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    padding: 0;
+    width: 100vw;
   }
   
   #language {
@@ -978,9 +988,10 @@ footer a {
   #menu {
     width: 85vw;
     bottom: 16px;
-    right: 0;
     z-index: 3;
     transform: none;
+    right: 50%;
+    transform: translate(50%, 0);
   }
 
   #menu-icon {
@@ -994,5 +1005,48 @@ footer a {
   #menu img {
     width: 26px;
     height: 26px;
+  }
+
+  #softskills-list {
+    flex-direction: column;
+    gap: 5vh;
+    margin-top: 5vh;
+  }
+
+  .softskills-item {
+    width: 100%;
+  }
+
+  footer h1 {
+    font-size: 4rem;
+    line-height: 1em;
+  }
+
+  #softskills h1, #hardskills h1 {
+    font-size: 3rem;
+  }
+
+  #selected-projects-title {
+    font-size: 2.5rem;
+    line-height: 1.5em;
+  }
+
+  #game-dev {
+    flex-direction: column;
+  }
+
+  #game-dev img {
+    transform: translate(0,-15px);
+  }
+  
+  #job-description h1 {
+    font-size: 1.5rem;
+  }
+
+  /*algum dia eu aprendo a usar grid*/
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 50vh);
+    gap: 8px;
   }
 }
