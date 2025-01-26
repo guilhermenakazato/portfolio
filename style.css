@@ -45,6 +45,9 @@ header {
   width: calc(100% - 12vw);
   overflow: clip;
   position: relative;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  border: 1px solid red;
 }
 
 #menu {
@@ -56,7 +59,7 @@ header {
   transform: translate(50%, 0);
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 20px;
   background-color: #000000FA;
   padding: 20px;
@@ -82,6 +85,11 @@ header {
   width: 80px;
   text-align: center;
   transition: 0.25s;
+}
+
+#menu-icon {
+  display: none;
+  cursor: pointer;
 }
 
 #menu a {
@@ -246,6 +254,8 @@ hr {
   transform: translate(0, 70vh);
   opacity: 0;
   transition: 3s;
+  display: flex;
+  flex-direction: column;
 }
 
 #presentation div {
@@ -271,7 +281,7 @@ hr {
 
 #presentation h3 {
   font-family: "Consolas";
-  font-size: 16px;
+  font-size: 0.9rem;
   font-weight: 400;
   line-height: 18.73px;
   text-align: left;
@@ -283,9 +293,9 @@ hr {
 
 #presentation h1 {
   font-family: "Clash Grotesk";
-  font-size: 90px;
+  font-size: 3.5rem;
   font-weight: 700;
-  line-height: 110.7px;
+  line-height: 1.1em;
   letter-spacing: 0.02em;
   text-align: left;
   text-decoration-line: underline;
@@ -297,7 +307,7 @@ hr {
 
 #presentation h4 {
   font-family: "Roboto Flex";
-  font-size: 20px;
+  font-size: 1.15rem;
   font-weight: 300;
   line-height: 23.44px;
   text-align: left;
@@ -933,4 +943,56 @@ footer a {
 
 #reverse-icon {
   transform: rotate(-180deg);
+}
+
+@media (max-width: 991px) {
+  header {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  #language {
+    display: none;
+  }
+
+  #projects {
+    display: none;
+  }
+
+  #presentation {
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+
+  #presentation h1 {
+    text-align: center;
+    font-size: 2.5rem;
+  }
+
+  #presentation h4 {
+    font-size: 1rem;
+  }
+
+  #menu {
+    width: 85vw;
+    bottom: 16px;
+    right: 0;
+    z-index: 3;
+    transform: none;
+  }
+
+  #menu-icon {
+    display: flex;
+  }
+
+  #link-buttons {
+    display: none;
+  }
+
+  #menu img {
+    width: 26px;
+    height: 26px;
+  }
 }
