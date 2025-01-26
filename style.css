@@ -39,10 +39,10 @@ html {
 header {
   display: flex;
   flex-direction: column;
-  padding: 3vh 6vw;
   background-image: url(./public/fundo.png);
-  height: 94vh;
-  width: calc(100% - 12vw);
+  background-size: 100% 100%;
+  height: 100vh;
+  width: 100%;
   overflow: clip;
   position: relative;
   object-fit: cover;
@@ -249,7 +249,8 @@ hr {
 }
 
 #presentation {
-  margin-top: 7vh;
+  margin-top: 15vh;
+  margin-left: 9vw;
   transform: translate(0, 70vh);
   opacity: 0;
   transition: 3s;
@@ -280,7 +281,7 @@ hr {
 
 #presentation h3 {
   font-family: "Consolas";
-  font-size: 0.9rem;
+  font-size: 1.15rem;
   font-weight: 400;
   line-height: 18.73px;
   text-align: left;
@@ -292,7 +293,7 @@ hr {
 
 #presentation h1 {
   font-family: "Clash Grotesk";
-  font-size: 3.5rem;
+  font-size: 6vw;
   font-weight: 700;
   line-height: 1.1em;
   letter-spacing: 0.02em;
@@ -317,9 +318,10 @@ hr {
 #language {
   display: flex;
   position: fixed;
-  width: 140px;
+  width: 12vw;
   flex-direction: row;
   align-items: center;
+  justify-content: end;
   gap: 8px;
   background-color: black;
   border-radius: 0 100px 100px 0;
@@ -335,7 +337,7 @@ hr {
 }
 
 .language-end {
-  left: -70px;
+  left: calc(-6vw - 25px);
 }
 
 #language:hover {
@@ -344,7 +346,7 @@ hr {
 
 #language span {
   font-family: "JetBrains Mono";
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 200;
   line-height: 21.12px;
   text-align: left;
@@ -411,8 +413,8 @@ hr {
 
 .card figure {
   border-radius: 16px;
-  width: 300px;
-  height: 450px;
+  width: 15vw;
+  height: 45vh;
   padding: 16px;
   margin: 1px;
   background-position: center;
@@ -440,7 +442,7 @@ hr {
 
 main {
   background-color: var(--primary-color);
-  padding: 6vh 6vw;
+  padding: 6vh 9vw;
   display: flex;
   flex-direction: column;
   gap: 8vh;
@@ -478,10 +480,6 @@ main {
   height: 20px;
 }
 
-#projects-container {
-  width: 94%;
-}
-
 figure.done {
   cursor: pointer;
 }
@@ -490,7 +488,7 @@ figure.done {
   display: grid;
   width: 100%;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 50vh);
+  grid-template-rows: repeat(2, 70vh);
   align-items: center;
   justify-content: center;
   gap: 0;
@@ -601,6 +599,8 @@ figure img:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  border: 1px solid red;
 }
 
 #project-info-menu {
@@ -720,7 +720,7 @@ figcaption h2 {
 }
 
 #hardskills {
-  width: 94%;
+  width: 100%;
 }
 
 #hardskills span {
@@ -793,7 +793,7 @@ figcaption h2 {
 #backend {
   background-color: black;
   color: var(--primary-color);
-  width: 94%;
+  width: 100%;
   z-index: 2;
   transition: 1s;
 }
@@ -814,7 +814,7 @@ figcaption h2 {
 #frontend {
   background-color: var(--primary-color);
   color: black;
-  width: 94%;
+  width: 100%;
   transition: 1s;
 }
 
@@ -854,10 +854,6 @@ img.visibility-icon {
 
 .skill-container img {
   width: 30%;
-}
-
-#softskills {
-  width: 94%;
 }
 
 #softskills-list {
@@ -928,7 +924,7 @@ footer h1 {
 
 #email a {
   font-family: "Clash Grotesk";
-  font-size: 20px;
+  font-size: 1.2rem;
   font-weight: 400;
   line-height: 24.6px;
   text-align: center;
@@ -940,13 +936,21 @@ footer h1 {
 #email {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: center;
   gap: 16px;
+  width: 27%;
+}
+
+#email img {
+  width: auto;
+  height: 80%;
 }
 
 footer a {
   text-decoration: none;
   color: transparent;
+  word-break: break-all;
 }
 
 #reverse-icon {
@@ -959,7 +963,7 @@ footer a {
     align-items: center;
     height: 100vh;
     padding: 0;
-    width: 100vw;
+    width: 100%;
   }
   
   #language {
@@ -1020,6 +1024,14 @@ footer a {
   footer h1 {
     font-size: 4rem;
     line-height: 1em;
+  }
+
+  #email {
+    width: 70%;
+  }
+
+  #email img {
+    height: 50%;
   }
 
   #softskills h1, #hardskills h1 {
