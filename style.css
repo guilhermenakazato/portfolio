@@ -32,12 +32,12 @@
   visibility: hidden;
 }
 
-html {
-  scroll-behavior: smooth;
+html, body {
+  height: 100%;
 }
 
-body {
-  word-break: break-all;
+html {
+  scroll-behavior: smooth;
 }
 
 header {
@@ -45,7 +45,7 @@ header {
   flex-direction: column;
   background-image: url(./public/fundo.png);
   background-size: 100% 100%;
-  min-height: 100vh;
+  height: 100%;
   width: 100%;
   overflow: clip;
   position: relative;
@@ -1091,5 +1091,9 @@ footer a {
 @media (max-width: 320px) {
   .skill-separator {
     height: 150vh;
+  }
+
+  body {
+    word-break: break-all;
   }
 }
