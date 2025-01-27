@@ -36,12 +36,16 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  word-break: break-all;
+}
+
 header {
   display: flex;
   flex-direction: column;
   background-image: url(./public/fundo.png);
   background-size: 100% 100%;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   overflow: clip;
   position: relative;
@@ -59,12 +63,12 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
   background-color: #000000FA;
   padding: 20px;
   border-radius: 20px;
   transition: 2s;
   opacity: 0;
+  width: 21vw;
 }
 
 #menu button {
@@ -81,7 +85,7 @@ header {
   cursor: pointer;
   padding: 10px;
   border-radius: 10px;
-  width: 80px;
+  width: 5vw;
   text-align: center;
   transition: 0.25s;
 }
@@ -293,7 +297,7 @@ hr {
 
 #presentation h1 {
   font-family: "Clash Grotesk";
-  font-size: 6vw;
+  font-size: 5.5rem;
   font-weight: 700;
   line-height: 1.1em;
   letter-spacing: 0.02em;
@@ -599,8 +603,6 @@ figure img:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  border: 1px solid red;
 }
 
 #project-info-menu {
@@ -758,7 +760,7 @@ figcaption h2 {
 
 #hardskills h3 {
   font-family: "JetBrains Mono";
-  font-size: 20px;
+  font-size: 1.3rem;
   font-weight: 700;
   line-height: 26.4px;
   text-underline-position: from-font;
@@ -772,7 +774,6 @@ figcaption h2 {
 }
 
 .skill-separator {
-  padding: 16px;
   border-radius: 30px;
   display: flex;
   flex-direction: column;
@@ -785,16 +786,16 @@ figcaption h2 {
 .line {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: end;
   justify-content: center;
-  gap: 40px;
+  gap: 2vw;
+  flex-wrap: wrap;
 }
 
 #backend {
   background-color: black;
   color: var(--primary-color);
   width: 100%;
-  z-index: 2;
   transition: 1s;
 }
 
@@ -835,10 +836,12 @@ figcaption h2 {
 
 img.visibility-icon {
   transition: 1s;
+  visibility: hidden;
   opacity: 0;
 }
 
 .skill-behind img.visibility-icon {
+  visibility: visible;
   opacity: 1;
 }
 
@@ -853,7 +856,7 @@ img.visibility-icon {
 }
 
 .skill-container img {
-  width: 30%;
+  width: 60%;
 }
 
 #softskills-list {
@@ -901,7 +904,7 @@ img.visibility-icon {
 }
 
 footer {
-  height: 100vh;
+  min-height: 100vh;
   background: black;
   display: flex;
   flex-direction: column;
@@ -940,6 +943,7 @@ footer h1 {
   justify-content: center;
   gap: 16px;
   width: 27%;
+  flex-wrap: wrap;
 }
 
 #email img {
@@ -961,9 +965,6 @@ footer a {
   header {
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    padding: 0;
-    width: 100%;
   }
   
   #language {
@@ -978,11 +979,13 @@ footer a {
     justify-content: center;
     align-items: center;
     margin: 0;
+    gap: 1vh
   }
 
   #presentation h1 {
     text-align: center;
     font-size: 2.5rem;
+    margin-bottom: 0;
   }
 
   #presentation h4 {
@@ -1021,6 +1024,18 @@ footer a {
     width: 100%;
   }
 
+  .skill-separator {
+    height: 80vh;
+  }
+
+  .skill-container img {
+    width: 40%;
+  }  
+
+  #hardskills h3 {
+    font-size: 1rem;
+  }
+
   footer h1 {
     font-size: 4rem;
     line-height: 1em;
@@ -1031,7 +1046,7 @@ footer a {
   }
 
   #email img {
-    height: 50%;
+    height: 24px;
   }
 
   #softskills h1, #hardskills h1 {
@@ -1060,5 +1075,21 @@ footer a {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(3, 50vh);
     gap: 8px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  footer h1 {
+    font-size: 4rem;
+  }
+
+  #menu {
+    width: 30vw;
+  }
+}
+
+@media (max-width: 320px) {
+  .skill-separator {
+    height: 150vh;
   }
 }
