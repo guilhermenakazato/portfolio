@@ -34,12 +34,36 @@
         </div>
       </div>
       <button id="apply" class="unselected-button" onclick="changeLanguage(true)">Aplicar</button>
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" id="close-button" onclick="closeLanguageWindow()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="close-button" onclick="closeLanguageWindow()">
         <path d="M15 15L1 1M15 1L1 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
-    <div id="project-info">
+    <div id="project-info"></div>
+    <div id="mobile-menu">
+      <div id="menu-content-wrapper">
+        <div id="sections">
+          <h2 id="start-section-menu" onclick="goToSection('hello')">Início</h2>
+          <h2 id="projects-section-menu" onclick="goToSection('my-works')">Projetos</h2>
+          <h2 id="contact-section-menu" onclick="openContact()">Contato</h2>
+          <h2 id="change-language-menu" onclick="showLanguageWindow()">Mudar idioma</h2>
+        </div>
+        <div id="menu-contact">
+          <a href="mailto:guilherme.fnakazato@gmail.com">GUILHERME.FNAKAZATO@GMAIL.COM</a>
+          <div id="menu-medias">
+            <a href="https://github.com/guilhermenakazato" target="_blank" rel="noopener noreferrer">
+              <img src="./public/github-logo.svg" alt="Github Logo"/>
+            </a>
+            <a href="https://www.linkedin.com/in/guilherme-nakazato/" target="_blank" rel="noopener noreferrer">
+              <img src="./public/linkedin-logo.svg" alt="LinkedIn Logo"/>
+            </a>
+          </div>
+        </div>
+      </div>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="close-button" onclick="closeMobileMenuWindow()">
+        <path d="M15 15L1 1M15 1L1 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </div>
+    
     <header id="hello">
       <div id="menu">
         <img src="./public/logo.png" alt="Pixel ícone">
@@ -50,11 +74,11 @@
           <a href="#my-works">
             <button id="projects-shortcut">Projetos</button>
           </a>
-          <a href="#call-me-maybe">
+          <a onclick="openContact()">
             <button id="contact-shortcut">Contato</button>
           </a>
         </div>
-        <img id="menu-icon" src="./public/menu-icon.svg" alt="Icone menu">
+        <img id="menu-icon" src="./public/menu-icon.svg" alt="Icone menu" onclick="openMobileMenuWindow()">
       </div>
       <div id="presentation">
         <h3 id="my-name">Olá, sou Guilherme...</h3>
@@ -185,7 +209,7 @@
 
     <footer id="call-me-maybe">
       <h1 id="get-in-touch">Entre em<br />contato</h1>
-      <div id="email">
+      <div class="email">
         <img src="./public/send_icon.png" alt="Send icon" />
         <a href="mailto:guilherme.fnakazato@gmail.com">guilherme.fnakazato@gmail.com</a>
         <img src="./public/send_icon.png" alt="Send icon" id="reverse-icon" />
@@ -202,7 +226,7 @@
     <script src="./scripts/loading.js"></script>
     <script src="./scripts/skill.js"></script>
     <script src="./scripts/projectInfo.js"></script>
-    <script src="./scripts/hideMenu.js"></script>
+    <script src="./scripts/menu.js"></script>
     <script src="./scripts/language.js"></script>
   </body>
 </html>

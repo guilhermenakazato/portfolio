@@ -1,6 +1,9 @@
 let contactSection;
 let previousRatio = 0.0;
 let menuDiv = document.getElementById("menu")
+let mobileMenuDiv = document.getElementById("mobile-menu")
+let bodyMenu = document.querySelector("body")
+let mobileMenuWindowIsOpen = false
 
 window.addEventListener("load", (event) => {
   contactSection = document.getElementById("call-me-maybe")
@@ -27,9 +30,7 @@ function handleIntersect(entries, observer) {
     let threshold = observer.thresholds[0]
 
     if(currentRatio > previousRatio && currentRatio >= threshold) {
-      menuDiv.style.transition = "0.5s"
-      menuDiv.style.opacity = 0
-      menuDiv.style.visibility = "hidden"
+      hideMenu()
     } else {
       if(animationShouldPlay) {
         showMenu(2000)
@@ -46,6 +47,12 @@ function handleIntersect(entries, observer) {
   })
 }
 
+function hideMenu() {
+  menuDiv.style.transition = "0.5s"
+  menuDiv.style.opacity = 0
+  menuDiv.style.visibility = "hidden"
+}
+
 function showMenu(startLoadAnimation = 0, showMenuTimeout = 500) {
   setTimeout(() => {
     menuDiv.style.visibility = "visible"
@@ -55,4 +62,44 @@ function showMenu(startLoadAnimation = 0, showMenuTimeout = 500) {
   setTimeout(() => {
     menuDiv.style.transition = "0s"
   }, startLoadAnimation + showMenuTimeout);
+}
+
+function openMobileMenuWindow() {
+  hideMenu()
+
+  mobileMenuDiv.style.display = "flex"
+  mobileMenuDiv.style.visibility = "visible"
+  bodyMenu.style.overflowY = "hidden"
+  mobileMenuWindowIsOpen = true
+}
+
+function closeMobileMenuWindow() { 
+  showMenu(0,0)
+
+  mobileMenuDiv.style.display = "none"
+  mobileMenuDiv.style.visibility = "hidden"
+  bodyMenu.style.overflowY = "visible"
+
+  mobileMenuWindowIsOpen = false
+}
+
+function openContact() {
+  if(mobileMenuWindowIsOpen) {
+    closeMobileMenuWindow()
+  }
+
+  let contactId = "call-me-maybe"
+  let contactSection = document.getElementById(contactId)
+  window.location.hash = contactId
+  contactSection.scrollIntoView()
+
+  window.open("mailto:guilherme.fernandes23903@gmail.com", "_blank")
+}
+
+function goToSection(id) {
+  closeMobileMenuWindow()
+
+  let section = document.getElementById(id)
+  window.location.hash = id
+  section.scrollIntoView()
 }
