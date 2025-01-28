@@ -3,6 +3,7 @@ let changeLanguageDiv = document.getElementById("change-language")
 let languageWindowMenuDiv = document.getElementById("menu")
 let chosenLanguage = "pt-BR";
 let languageWindowClosed;
+let languageWindowOpenInMobile;
 
 let uniqueStrings = {
   "en-US": {
@@ -27,6 +28,10 @@ let uniqueStrings = {
     "adaptability-explanation": "Adaptability is an important soft skill that helps programmers to easily adjust to new technologies, methodologies, and project requisites.",
     "communication-explanation": "Communication is an important soft skill that allows programmers to have a better understanding of the product they are developing.",
     "teamwork-explanation": "Teamwork is an important soft skill that allows programmers to develop large scale projects, with the help of many collaborators.",
+    "start-section-menu": "Start",
+    "projects-section-menu": "Projects",
+    "contact-section-menu": "Contact",
+    "change-language-menu": "Change language"
   },
   "pt-BR": {
     "my-name": "Olá, sou Guilherme...",    
@@ -50,6 +55,11 @@ let uniqueStrings = {
     "communication-explanation": "A comunicação é uma soft skill importante que permite que os programadores tenham um melhor entendimento do produto que estão desenvolvendo.",
     "teamwork-explanation": "O trabalho em equipe é uma soft skill importante que permite que os programadores desenvolvam projetos de grande escala, com a ajuda de vários colaboradores.",
     "adaptability-explanation": "A adaptabilidade é uma soft skill importante que permite que os programadores se ajustem facilmente a novas tecnologias, metodologias e requisitos de projeto.",
+    "start-section-menu": "Início",
+    "projects-section-menu": "Projetos",
+    "contact-section-menu": "Contato",
+    "change-language-menu": "Mudar idioma"
+
   }
 }
 
@@ -65,7 +75,9 @@ let repeatedStrings = {
 }
 
 function closeLanguageWindow() {
-  body.style.overflowY = "visible"
+  if(!languageWindowOpenInMobile)
+    body.style.overflowY = "visible"
+  
   changeLanguageDiv.style.display = "none"
   changeLanguageDiv.style.appearance = "hidden"
   
@@ -73,7 +85,9 @@ function closeLanguageWindow() {
   languageWindowClosed = true
 }
 
-function showLanguageWindow() {
+function showLanguageWindow(mobileOpened) {
+  languageWindowOpenInMobile = mobileOpened
+
   languageWindowClosed = false
   body.style.overflowY = "hidden"
   changeLanguageDiv.style.display = "flex"
@@ -138,6 +152,7 @@ function changeLanguage(changedFromButton) {
 function changeLanguageButtonStyle(language) {
   let portugueseButton = document.getElementById("pt-BR-button")
   let englishButton = document.getElementById("en-US-button")
+  let userChoseNewLanguage = language != chosenLanguage
 
   if(!document.getElementById(`${language}-button`).classList.contains("selected-button")) {
     portugueseButton.classList.toggle("selected-button")
@@ -148,6 +163,15 @@ function changeLanguageButtonStyle(language) {
 
     chosenLanguage = language
   } 
+
+  if(languageWindowOpenInMobile) {
+    if(userChoseNewLanguage) {
+      storeLanguageValue(language)
+      changeLanguage(true)
+    }
+
+    closeLanguageWindow()
+  }
 }
 
 getWebsiteLanguage()
