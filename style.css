@@ -655,6 +655,7 @@ figure img:hover {
   overflow: hidden;
   cursor: grab;
   user-select: none;
+  touch-action: none;
 }
 
 #project-images div {

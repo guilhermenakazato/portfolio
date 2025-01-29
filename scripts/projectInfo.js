@@ -164,7 +164,7 @@ function generateProjectInfoDiv(projectId) {
 
 function grabImagesToScroll() {
   let projectImageDiv = document.getElementById("project-images");
-  let pos = { top: 0, left: 0, x: 0, y: 0 };
+  let pos = { left: 0, x: 0 };
 
   const mouseDownHandler = function (e) {
     console.log("Hiya")
@@ -174,9 +174,7 @@ function grabImagesToScroll() {
 
     pos = {
       left: projectImageDiv.scrollLeft,
-      top: projectImageDiv.scrollTop,
-      x: e.clientX,
-      y: e.clientY,
+      x: e.pageX,
     };
 
     document.addEventListener("pointermove", mouseMoveHandler);
@@ -184,17 +182,16 @@ function grabImagesToScroll() {
   };
 
   const mouseMoveHandler = function (e) {
+    console.log("Heya")
     const dx = e.clientX - pos.x;
-    const dy = e.clientY - pos.y;
+    console.log(e.clientX, pos.x, dx)
 
-    console.log(dx)
-    console.log(dy)
-
-    projectImageDiv.scrollTop = pos.top - dy;
     projectImageDiv.scrollLeft = pos.left - dx;
   };
 
   const mouseUpHandler = function () {
+    console.log("Huwaa!")
+    
     projectImageDiv.style.cursor = "grab";
     projectImageDiv.style.removeProperty("user-select");
 
