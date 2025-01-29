@@ -237,6 +237,7 @@ hr {
 }
 
 #loading div {
+  height: 50vh;
   height: 50dvh;
   width: 100%;
   transition: 1.25s;
@@ -606,20 +607,22 @@ figure img:hover {
   justify-content: center;
   transition: 0.25s;
   color: var(--primary-color);
+  gap: 4vh;
 }
 
 #project-info-container {
   width: 94%;
+  gap: 8vh;
   height: 94vh;
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: space-between;
 }
 
 #project-info-menu {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
 #project-info h1 {
@@ -645,6 +648,7 @@ figure img:hover {
 
 #project-images {
   display: flex;
+  flex: 1;
   flex-direction: row;
   gap: 2vw;
   overflow: hidden;
@@ -653,10 +657,15 @@ figure img:hover {
 }
 
 #project-images div {
-  width: 60vh;
-  height: 60vh;
+  width: auto;
+  height: auto;
+  aspect-ratio: 1/1;
   background-color: var(--project-image-bg-color);
   overflow: clip;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #project-images img {
@@ -681,12 +690,15 @@ figure img:hover {
 #close-text {
   cursor: pointer;
   height: fit-content;
+  position: absolute;
+  right: 16px;
+  top: 16px;
 }
 
 #project-links {
   display: flex;
   flex-direction: row;
-  gap: 8px;
+  gap: 1vw;
 }
 
 #project-links a {
@@ -915,7 +927,7 @@ img.visibility-icon {
 }
 
 footer {
-  height: 100%;
+  height: 100vh;
   background: black;
   display: flex;
   flex-direction: column;
@@ -1051,6 +1063,17 @@ footer a {
   color: white;
   top: 32px;
   right: 32px;
+}
+
+@media (max-width: 1199px) {
+  #project-images {
+    gap: 6vw;
+  }
+
+  #project-images div {
+    width: 70vw;
+    height: auto;
+  }
 }
 
 @media (max-width: 991px) {
@@ -1197,11 +1220,35 @@ footer a {
   #language-buttons {
     flex-direction: column;
   }
+
+  #project-info-menu {
+    align-self: center;
+  }
+
+  #project-links {
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2vw;
+  }
+
+  #project-info-container {
+    gap: 3vh;
+  }
+
+  #project-info-menu {
+    align-items: center;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
   footer h1 {
     font-size: 4rem;
+  }
+
+  #project-links {
+    align-items: center;
+    justify-content: center;
   }
 }
 

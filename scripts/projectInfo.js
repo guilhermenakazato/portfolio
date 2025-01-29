@@ -26,7 +26,7 @@ let selectedProjects = [
     progress: "done",
     "main-image": "./public/galeria.png",
     "main-image-description": "galeria",
-    "playstore-link": null,
+    "playstore-link": "https://www.google.com",
     "github-link": "https://github.com/guilhermenakazato/app-galeria",
     screenshots: [
       {
@@ -117,12 +117,10 @@ function generateProjectInfoDiv(projectId) {
   let infoMenu = `
     <div id="project-info-container">
         <div id="project-info-menu">
-          <div>
-            <h1>${project.title.toUpperCase()}</h1>
-            <h2>${project.subtitle}</h2>
-          </div>
-          <h2 id="close-text" onclick="closeProjectInfoWindow()">${closeText}</h2>
+          <h1>${project.title.toUpperCase()}</h1>
+          <h2>${project.subtitle}</h2>
         </div>
+        <h2 id="close-text" onclick="closeProjectInfoWindow()">${closeText}</h2>
         <div id="project-images">
         `;
 
