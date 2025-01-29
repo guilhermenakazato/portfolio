@@ -650,6 +650,7 @@ figure img:hover {
   display: flex;
   flex: 1;
   flex-direction: row;
+  align-items: center;
   gap: 2vw;
   overflow: hidden;
   cursor: grab;
@@ -1066,10 +1067,6 @@ footer a {
 }
 
 @media (max-width: 1199px) {
-  #project-images {
-    gap: 6vw;
-  }
-
   #project-images div {
     width: 70vw;
     height: auto;
@@ -1077,6 +1074,15 @@ footer a {
 }
 
 @media (max-width: 991px) {
+  #project-images {
+    flex: none;
+  }
+
+  #project-info-container {
+    gap: 4vh;
+    justify-content: center;
+  }
+
   header {
     justify-content: center;
     align-items: center;
@@ -1230,10 +1236,6 @@ footer a {
     justify-content: center;
     flex-wrap: wrap;
     gap: 2vw;
-  }
-
-  #project-info-container {
-    gap: 3vh;
   }
 
   #project-info-menu {
